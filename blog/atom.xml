@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ondrejnepozitek.github.io//ProceduralLevelGenerator-Unity/blog</id>
-    <title>Test Site Blog</title>
+    <title>Procedural dungeon generator Blog</title>
     <updated>2017-10-24T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://ondrejnepozitek.github.io//ProceduralLevelGenerator-Unity/blog"/>
-    <subtitle>The best place to stay up-to-date with the latest Test Site news and events.</subtitle>
+    <subtitle>The best place to stay up-to-date with the latest Procedural dungeon generator news and events.</subtitle>
     <logo>https://ondrejnepozitek.github.io//ProceduralLevelGenerator-Unity/undefined</logo>
     <rights>Copyright © 2019 Your Name or Your Company Name</rights>
     <entry>
