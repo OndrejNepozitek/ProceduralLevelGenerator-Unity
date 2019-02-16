@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Pipeline tasks · Procedural dungeon generator</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;TODO&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Pipeline tasks · Procedural dungeon generator"/><meta property="og:type" content="website"/><meta property="og:url" content="https://ondrejnepozitek.github.io//ProceduralLevelGenerator-Unity/index.html"/><meta property="og:description" content="&lt;p&gt;TODO&lt;/p&gt;
+"/><meta property="og:image" content="https://ondrejnepozitek.github.io//ProceduralLevelGenerator-Unity/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://ondrejnepozitek.github.io//ProceduralLevelGenerator-Unity/img/docusaurus.png"/><link rel="shortcut icon" href="/ProceduralLevelGenerator-Unity/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-31904365-15', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/ProceduralLevelGenerator-Unity/css/prism.css"/><link rel="stylesheet" href="/ProceduralLevelGenerator-Unity/css/main.css"/><script src="/ProceduralLevelGenerator-Unity/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/ProceduralLevelGenerator-Unity/"><h2 class="headerTitle">Procedural dungeon generator</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/ProceduralLevelGenerator-Unity/docs/introduction" target="_self">Docs</a></li><li class=""><a href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity" target="_self">Github</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Generator pipeline</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/motivation">Motivation</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/installation">Installation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Basics</h3><ul class=""><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/basics_templates">Room templates</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/basics_levelGraphs">Level graphs</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/basics_generatorSetup">Generator setup</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/basics_performanceTips">Performance tips</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Examples</h3><ul class=""><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/example1">Example 1</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/example2">Example 2</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Generator pipeline</h3><ul class=""><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/generatorPipeline">Generator pipeline</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/pipelinePayload">Pipeline payload</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/pipelineTasks">Pipeline tasks</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/generatorPipeline_tilemapLayers">Tilemap layers</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Pipeline tasks</h3><ul class=""><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/fixedInput">Fixed input</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/graphBasedGenerator">Graph based generator</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/guides_proceduralLevelGraphs">Procedural level graphs</a></li><li class="navListItem"><a class="navItem" href="/ProceduralLevelGenerator-Unity/docs/guides_corridorsCorrection">Corridors correction</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Pipeline tasks</h1></header><article><div><span><p>TODO</p>
+<h2><a class="anchor" aria-hidden="true" id="creating-pipeline-tasks"></a><a href="#creating-pipeline-tasks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating pipeline tasks</h2>
+<p>There are currently 2 ways to create pipeline tasks - the first way is simpler but less flexible and the second way is the exact opposite - slightly more complex but also more flexible.</p>
+<h2><a class="anchor" aria-hidden="true" id="inheriting-from-pipelinetask"></a><a href="#inheriting-from-pipelinetask" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inheriting from <code>PipelineTask</code></h2>
+<p>The first way to create a pipeline task is to create a class that inherits from the <code>PipelineTask</code> class below. As you can see, the <code>PipelineTask</code> class is abstract and you have to provide an implementation of the <code>Process</code> method.</p>
+<pre><code class="hljs css language-csharp"><span class="token comment">/// &lt;summary></span>
+<span class="token comment">/// Base class for pipeline tasks. Used in simpler scenarios.</span>
+<span class="token comment">/// &lt;/summary></span>
+<span class="token comment">/// &lt;typeparam name="TPayload">Type of the payload&lt;/typeparam></span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">PipelineTask</span><span class="token operator">&lt;</span>TPayload<span class="token operator">></span> <span class="token punctuation">:</span> PipelineItem<span class="token punctuation">,</span> IPipelineTask<span class="token operator">&lt;</span>TPayload<span class="token operator">></span> 
+    <span class="token keyword">where</span> TPayload <span class="token punctuation">:</span> <span class="token keyword">class</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/// &lt;summary></span>
+    <span class="token comment">/// Payload object.</span>
+    <span class="token comment">/// &lt;/summary></span>
+    <span class="token keyword">public</span> <span class="token class-name">TPayload</span> Payload <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token comment">/// &lt;summary></span>
+    <span class="token comment">/// Method containing all the logic of the task.</span>
+    <span class="token comment">/// &lt;/summary></span>
+    <span class="token comment">/// &lt;remarks></span>
+    <span class="token comment">/// When this method is called, the Payload property is already set.</span>
+    <span class="token comment">/// &lt;/remarks></span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">Process</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>PipelineTask&lt;TPayload&gt;</code> inherits from <code>PipelineItem</code> and that class inherits from <code>ScriptableObject</code>. So every child of <code>PipelineTask&lt;TPayload&gt;</code> is a <code>ScriptableObject</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>Imagine that we have payload defined as follows:</p>
+<pre><code class="hljs css language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Payload</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> Number <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Let's create a pipeline task that will subtract a number from the <code>Payload.Number</code> property and we want that number to be configurable in Editor.</p>
+<pre><code class="hljs css language-csharp"><span class="token punctuation">[</span><span class="token class-name">CreateAssetMenu</span><span class="token punctuation">(</span>menuName <span class="token operator">=</span> <span class="token string">"Example tasks/Subtract task"</span><span class="token punctuation">,</span> fileName <span class="token operator">=</span> <span class="token string">"SubtractTask"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SubtractTask</span> <span class="token punctuation">:</span> <span class="token class-name">PipelineTask</span><span class="token operator">&lt;</span>Payload<span class="token operator">></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> ToSubtract<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Process</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Payload<span class="token punctuation">.</span>Number <span class="token operator">-</span><span class="token operator">=</span> ToSubtract<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>You can see that I added the <code>CreateAssetMenu</code> attribute because we want to be able to create an instance if the task in the Editor. The rest of the code should be quite self-explanatory.</p>
+<h3><a class="anchor" aria-hidden="true" id="pros-and-cons"></a><a href="#pros-and-cons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pros and cons</h3>
+<p>The biggest <em>disadvantage</em> is that we have to specify exactly which payload class we want to use because Unity does not allow us to have generic ScriptableObjects. However, this may not be a problem if you do not plan to ever switch payload's implementation.</p>
+<blockquote>
+<p><strong>Note:</strong> It is not exactly true that we have to specify which payload <em>class</em> we want to use. We can also use an <em>interface</em>. But what if we want to access properties from multiple interfaces? There are workarounds but I have yet to find one that is not ugly.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="inheriting-from-pipelineconfig"></a><a href="#inheriting-from-pipelineconfig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inheriting from <code>PipelineConfig</code></h2>
+<p>The second way to create a pipeline task is more flexible. Instead of creating a single class, we will need 2 classes - one will be a non-generic configuration class and the second one will be a generic task. We will inherit from the following two classes.</p>
+<pre><code class="hljs css language-csharp"><span class="token comment">/// &lt;summary></span>
+<span class="token comment">/// Base class for configs of pipeline tasks.</span>
+<span class="token comment">/// &lt;/summary></span>
+<span class="token comment">/// &lt;remarks></span>
+<span class="token comment">/// Should be used together with &lt;seealso cref="ConfigurablePipelineTask{TPayload,TConfig}"/>.</span>
+<span class="token comment">/// &lt;/remarks></span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">PipelineConfig</span> <span class="token punctuation">:</span> <span class="token class-name">PipelineItem</span>
+<span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<pre><code class="hljs css language-csharp"><span class="token comment">/// &lt;summary></span>
+<span class="token comment">/// Base class for configurable pipeline tasks.</span>
+<span class="token comment">/// &lt;/summary></span>
+<span class="token comment">/// &lt;typeparam name="TPayload">Type of payload.&lt;/typeparam></span>
+<span class="token comment">/// &lt;typeparam name="TConfig">Type of config.&lt;/typeparam></span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">ConfigurablePipelineTask</span><span class="token operator">&lt;</span>TPayload<span class="token punctuation">,</span> TConfig<span class="token operator">></span> <span class="token punctuation">:</span> IConfigurablePipelineTask<span class="token operator">&lt;</span>TPayload<span class="token punctuation">,</span> TConfig<span class="token operator">></span> 
+    <span class="token keyword">where</span> TConfig <span class="token punctuation">:</span> <span class="token class-name">PipelineConfig</span> 
+    <span class="token keyword">where</span> TPayload <span class="token punctuation">:</span> <span class="token keyword">class</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/// &lt;summary></span>
+    <span class="token comment">/// Payload object.</span>
+    <span class="token comment">/// &lt;/summary></span>
+    <span class="token keyword">public</span> <span class="token class-name">TPayload</span> Payload <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token comment">/// &lt;summary></span>
+    <span class="token comment">/// Config object.</span>
+    <span class="token comment">/// &lt;/summary></span>
+    <span class="token keyword">public</span> <span class="token class-name">TConfig</span> Config <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token comment">/// &lt;summary></span>
+    <span class="token comment">/// Method containing all the logic of the task.</span>
+    <span class="token comment">/// &lt;/summary></span>
+    <span class="token comment">/// &lt;remarks></span>
+    <span class="token comment">/// When this method is called, both Payload and Config properties are already set.</span>
+    <span class="token comment">/// &lt;/remarks></span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">Process</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>PipelineConfig</code> inherits from <code>PipelineItem</code> and that class inherits from <code>ScriptableObject</code>. So every child of <code>PipelineConfig</code> is a <code>ScriptableObject</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>Imagine that we want to implement a task that chooses a random size for our dungeon and that we already have 2 payload interfaces - <code>IDungeonPayload</code> and <code>IRandomGeneratorPayload</code>. Payload implementation may look like this:</p>
+<pre><code class="hljs css language-csharp"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IDungeonPayload</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> Size <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IRandomGeneratorPayload</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">Random</span> Random <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Payload</span> <span class="token punctuation">:</span> <span class="token class-name">IRandomGeneratorPayload</span><span class="token punctuation">,</span> IDungeonPayload
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">Random</span> Random <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> Size <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>First we create a config for our task. We want to choose size from a predefined range.</p>
+<pre><code class="hljs css language-csharp"><span class="token punctuation">[</span><span class="token class-name">CreateAssetMenu</span><span class="token punctuation">(</span>menuName <span class="token operator">=</span> <span class="token string">"Example tasks/Random size task"</span><span class="token punctuation">,</span> fileName <span class="token operator">=</span> <span class="token string">"RandomSizeTask"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RandomSizeConfig</span> <span class="token punctuation">:</span> <span class="token class-name">PipelineConfig</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> MinSize<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> MaxSize<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And now we create the actual task.</p>
+<pre><code class="hljs css language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RandomSizeTask</span><span class="token operator">&lt;</span>TPayload<span class="token operator">></span> <span class="token punctuation">:</span> ConfigurablePipelineTask<span class="token operator">&lt;</span>TPayload<span class="token punctuation">,</span> RandomSizeConfig<span class="token operator">></span> 
+    <span class="token keyword">where</span> TPayload <span class="token punctuation">:</span> <span class="token keyword">class</span><span class="token punctuation">,</span> IRandomGeneratorPayload<span class="token punctuation">,</span> IDungeonPayload
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Process</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Payload<span class="token punctuation">.</span>Size <span class="token operator">=</span> Payload<span class="token punctuation">.</span>Random<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span>Config<span class="token punctuation">.</span>MinSize<span class="token punctuation">,</span> Config<span class="token punctuation">.</span>MaxSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Note a few things regarding the task:</p>
+<ul>
+<li>it is a generic class</li>
+<li>it inherits from the <code>ConfigurablePipelineTask&lt;TPayload, RandomSizeConfig&gt;</code> class - with this approach the payload is always an open generic type while the config is always the config class that we created in the previous step</li>
+<li>it has access to <code>Payload</code> and <code>Config</code> properties
+<ul>
+<li><code>Payload</code> is of a generic <code>TPayload</code> type that must implement both <code>IDungeonPayload</code> and <code>IRandomGeneratorPayload</code> interfaces</li>
+<li><code>Config</code> is of the <code>RandomSizeConfig</code> type</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="pros-and-cons-1"></a><a href="#pros-and-cons-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pros and cons</h3>
+<p>The biggest advantage of this approach is that we still have a non-generic ScriptableObject that we can use to configure the task in Editor, but we also have a <strong>generic task</strong> that uses generic type constraints to enforce that the payload type implements given interfaces.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/ProceduralLevelGenerator-Unity/docs/pipelinePayload"><span class="arrow-prev">← </span><span>Pipeline payload</span></a><a class="docs-next button" href="/ProceduralLevelGenerator-Unity/docs/generatorPipeline_tilemapLayers"><span>Tilemap layers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#creating-pipeline-tasks">Creating pipeline tasks</a></li><li><a href="#inheriting-from-pipelinetask">Inheriting from <code>PipelineTask</code></a><ul class="toc-headings"><li><a href="#example">Example</a></li><li><a href="#pros-and-cons">Pros and cons</a></li></ul></li><li><a href="#inheriting-from-pipelineconfig">Inheriting from <code>PipelineConfig</code></a><ul class="toc-headings"><li><a href="#example-1">Example</a></li><li><a href="#pros-and-cons-1">Pros and cons</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/ProceduralLevelGenerator-Unity/" class="nav-home"><img src="/ProceduralLevelGenerator-Unity/img/docusaurus.svg" alt="Procedural dungeon generator" width="66" height="58"/></a><div><h5>Docs</h5><a href="/ProceduralLevelGenerator-Unity/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/ProceduralLevelGenerator-Unity/docs/en/doc2.html">Guides (or other categories)</a><a href="/ProceduralLevelGenerator-Unity/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/ProceduralLevelGenerator-Unity/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/ProceduralLevelGenerator-Unity/blog">Blog</a><a href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity">GitHub</a><a class="github-button" href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity" data-icon="octicon-star" data-count-href="/OndrejNepozitek/ProceduralLevelGenerator-Unity/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/ProceduralLevelGenerator-Unity/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Your Name or Your Company Name</section></footer></div></body></html>
