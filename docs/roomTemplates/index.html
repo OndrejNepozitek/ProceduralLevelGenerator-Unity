@@ -177,6 +177,36 @@
 <blockquote>
 <p><strong>Note:</strong> The inspector script currently lets you add door positions that are not on the outline of the room shape. It will, hovewer, result in an error when trying to generate a dungeon. It should be improved in the future.</p>
 </blockquote>
+<h2><a class="anchor" aria-hidden="true" id="corridors"></a><a href="#corridors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Corridors</h2>
+<p>The algorithm distinguishes two types of room tamples - basic room templates and room templates for corridor rooms. There are currently 2 limitations regarding doors in corridor room templates:</p>
+<ol>
+<li>There must be exactly two door positions.</li>
+<li>The two door positions must be on the opposite sides of the room layout.</li>
+</ol>
+<p>The images below demonstrate what is a correct corridor room template and what is not.</p>
+<div class="two-columns">
+<div>
+<p><img src="/ProceduralLevelGenerator-Unity/docs/assets/corridor_ok1.png" alt="">
+<em>Correct</em></p>
+</div>
+<div>
+<p><img src="/ProceduralLevelGenerator-Unity/docs/assets/corridor_ok2.png" alt="">
+<em>Correct</em></p>
+</div>
+</div>
+<div class="two-columns">
+<div>
+<p><img src="/ProceduralLevelGenerator-Unity/docs/assets/corridor_nok1.png" alt="">
+<em>Wrong - Doors not on opposite sides</em></p>
+</div>
+<div>
+<p><img src="/ProceduralLevelGenerator-Unity/docs/assets/corridor_nok2.png" alt="">
+<em>Wrong - More than 2 door positions</em></p>
+</div>
+</div>
+<blockquote>
+<p><strong>Note:</strong> This is a limitation of the dungeon generator library and not the plugin itself. I plan to completely rework corridors in the future.</p>
+</blockquote>
 <h2><a class="anchor" aria-hidden="true" id="final-steps"></a><a href="#final-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Final steps</h2>
 <p>After creating a room template GameObject, you can simply save it as an asset and it is ready to be used in a level graph.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/ProceduralLevelGenerator-Unity/docs/basics"><span class="arrow-prev">← </span><span>Basics</span></a><a class="docs-next button" href="/ProceduralLevelGenerator-Unity/docs/levelGraphs"><span>Level graphs</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#terminology">Terminology</a></li><li><a href="#room-layout">Room layout</a><ul class="toc-headings"><li><a href="#tilemaps">Tilemaps</a></li><li><a href="#room-shape">Room shape</a></li></ul></li><li><a href="#doors">Doors</a><ul class="toc-headings"><li><a href="#door-modes">Door modes</a></li></ul></li><li><a href="#final-steps">Final steps</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/ProceduralLevelGenerator-Unity/" class="nav-home"></a><div><h5>Docs</h5><a href="/ProceduralLevelGenerator-Unity/docs/en/introduction.html">Getting Started</a></div><div><h5>Community</h5><a href="https://twitter.com/OndrejNepozitek" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://ondra.nepozitek.cz/blog/" target="_blank" rel="noreferrer noopener">Blog</a><a href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity">GitHub</a><a class="github-button" href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity" data-icon="octicon-star" data-count-href="/OndrejNepozitek/ProceduralLevelGenerator-Unity/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/ProceduralLevelGenerator-Unity/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Ondřej Nepožitek</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/ProceduralLevelGenerator-Unity/docs/basics"><span class="arrow-prev">← </span><span>Basics</span></a><a class="docs-next button" href="/ProceduralLevelGenerator-Unity/docs/levelGraphs"><span>Level graphs</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#terminology">Terminology</a></li><li><a href="#room-layout">Room layout</a><ul class="toc-headings"><li><a href="#tilemaps">Tilemaps</a></li><li><a href="#room-shape">Room shape</a></li></ul></li><li><a href="#doors">Doors</a><ul class="toc-headings"><li><a href="#door-modes">Door modes</a></li></ul></li><li><a href="#corridors">Corridors</a></li><li><a href="#final-steps">Final steps</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/ProceduralLevelGenerator-Unity/" class="nav-home"></a><div><h5>Docs</h5><a href="/ProceduralLevelGenerator-Unity/docs/en/introduction.html">Getting Started</a></div><div><h5>Community</h5><a href="https://twitter.com/OndrejNepozitek" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://ondra.nepozitek.cz/blog/" target="_blank" rel="noreferrer noopener">Blog</a><a href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity">GitHub</a><a class="github-button" href="https://github.com/OndrejNepozitek/ProceduralLevelGenerator-Unity" data-icon="octicon-star" data-count-href="/OndrejNepozitek/ProceduralLevelGenerator-Unity/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/ProceduralLevelGenerator-Unity/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Ondřej Nepožitek</section></footer></div></body></html>
