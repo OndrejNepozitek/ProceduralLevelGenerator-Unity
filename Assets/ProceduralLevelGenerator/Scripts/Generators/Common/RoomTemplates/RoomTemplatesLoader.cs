@@ -7,7 +7,8 @@ using Assets.ProceduralLevelGenerator.Scripts.Utils;
 using GeneralAlgorithms.Algorithms.Common;
 using GeneralAlgorithms.DataStructures.Common;
 using GeneralAlgorithms.DataStructures.Polygons;
-using MapGeneration.Interfaces.Core.MapDescriptions;
+using MapGeneration.Core.MapDescriptions.Interfaces;
+//using MapGeneration.Interfaces.Core.MapDescriptions;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
