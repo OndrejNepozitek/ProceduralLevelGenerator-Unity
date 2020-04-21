@@ -3,7 +3,8 @@ using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.RoomTemplates.Ro
 using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.RoomTemplates.TilemapLayers;
 using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.Utils;
 using GeneralAlgorithms.DataStructures.Polygons;
-using MapGeneration.Interfaces.Core.MapDescriptions;
+using MapGeneration.Core.MapDescriptions.Interfaces;
+//using MapGeneration.Interfaces.Core.MapDescriptions;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

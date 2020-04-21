@@ -8,7 +8,8 @@ using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.Utils;
 using Assets.ProceduralLevelGenerator.Scripts.Generators.DungeonGenerator.Configs;
 using Assets.ProceduralLevelGenerator.Scripts.Pipeline;
 using MapGeneration.Core.LayoutGenerators.DungeonGenerator;
-using MapGeneration.Interfaces.Core.MapLayouts;
+using MapGeneration.Core.MapLayouts.Interfaces;
+//using MapGeneration.Interfaces.Core.MapLayouts;
 using UnityEngine;
 
 namespace Assets.ProceduralLevelGenerator.Scripts.Generators.DungeonGenerator.PipelineTasks
@@ -49,7 +50,8 @@ namespace Assets.ProceduralLevelGenerator.Scripts.Generators.DungeonGenerator.Pi
             }
 
             var mapDescription = levelDescription.GetMapDescription();
-            var configuration = new DungeonGeneratorConfiguration<Room>(mapDescription)
+//            var configuration = new DungeonGeneratorConfiguration<Room>(mapDescription)
+            var configuration = new DungeonGeneratorConfiguration<Room>()
             {
                 RoomsCanTouch = false,
                 RepeatModeOverride = GeneratorUtils.GetRepeatMode(config.RepeatModeOverride),

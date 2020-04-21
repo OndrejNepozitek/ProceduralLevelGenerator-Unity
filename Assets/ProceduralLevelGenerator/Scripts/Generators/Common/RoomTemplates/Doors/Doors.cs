@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Assets.ProceduralLevelGenerator.Scripts.Utils;
 using GeneralAlgorithms.DataStructures.Common;
 using MapGeneration.Core.Doors.DoorModes;
-using MapGeneration.Interfaces.Core.Doors;
+using MapGeneration.Core.Doors.Interfaces;
+//using MapGeneration.Interfaces.Core.Doors;
 using UnityEngine;
 using OrthogonalLine = GeneralAlgorithms.DataStructures.Common.OrthogonalLine;
 

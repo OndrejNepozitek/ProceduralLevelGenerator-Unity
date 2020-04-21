@@ -3,7 +3,8 @@ using System.Linq;
 using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.LevelGraph;
 using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.Rooms;
 using Assets.ProceduralLevelGenerator.Scripts.Generators.Common.RoomTemplates;
-using MapGeneration.Interfaces.Core.MapLayouts;
+using MapGeneration.Core.MapLayouts.Interfaces;
+//using MapGeneration.Interfaces.Core.MapLayouts;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

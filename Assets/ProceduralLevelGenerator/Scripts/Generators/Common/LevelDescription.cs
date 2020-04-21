@@ -7,7 +7,8 @@ using GeneralAlgorithms.DataStructures.Common;
 using GeneralAlgorithms.DataStructures.Graphs;
 using JetBrains.Annotations;
 using MapGeneration.Core.MapDescriptions;
-using MapGeneration.Interfaces.Core.MapDescriptions;
+using MapGeneration.Core.MapDescriptions.Interfaces;
+//using MapGeneration.Interfaces.Core.MapDescriptions;
 using UnityEngine;
 
 namespace Assets.ProceduralLevelGenerator.Scripts.Generators.Common
